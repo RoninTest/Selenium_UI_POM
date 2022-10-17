@@ -11,8 +11,6 @@ public class DemoQA_TextBoxPage {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
 
-    @FindBy (xpath = "//li[@class=\"btn btn-light active\"]")
-    public WebElement ep_Textbox;
 
     @FindBy (xpath = "//input[@id='userName']")
     public WebElement ep_FullName;
@@ -22,7 +20,5 @@ public class DemoQA_TextBoxPage {
 
     @FindBy (id="name")
     public WebElement registerName;
-
-
 
 }
