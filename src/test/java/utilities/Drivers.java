@@ -17,20 +17,24 @@ public class Drivers {
         if(driver == null){
 
             switch (ConfigReader.getProperty("browser")) {
-                case "chrome" -> {
+                case "chrome" : {
                     WebDriverManager.chromedriver().setup();
-                    ;
                     driver = new ChromeDriver();
+                    break;
                 }
-                case "safari" -> {
+
+                case "safari" : {
                     WebDriverManager.safaridriver().setup();
                     driver = new SafariDriver();
+                    break;
                 }
-                case "firefox" -> {
+                case "firefox" : {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
+                    break;
                 }
-                default -> {
+
+                default : {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                 }
@@ -44,7 +48,7 @@ public class Drivers {
     public static void closeDriver(){
         if(driver != null)
         {
-            driver.close();
+            driver.quit();
             driver=null;
         }
     }

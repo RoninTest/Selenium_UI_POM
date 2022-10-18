@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -25,12 +26,11 @@ public class DemoQA_CheckBox_Test {
         element3=Drivers.getDriver().findElement(By.id("result"));
         Assert.assertTrue(element3.isDisplayed());
 
+        //Drivers.closeDriver();
+    }
+
+    @After
+    public void exit(){
         Drivers.closeDriver();
-
-
-
-
-
-
     }
 }

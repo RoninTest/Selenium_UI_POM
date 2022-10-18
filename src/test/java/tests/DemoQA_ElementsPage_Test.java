@@ -25,10 +25,12 @@ public class DemoQA_ElementsPage_Test {
 
 
     }
+
     @After
     public void exit(){
         Drivers.closeDriver();
     }
+
 
 
 

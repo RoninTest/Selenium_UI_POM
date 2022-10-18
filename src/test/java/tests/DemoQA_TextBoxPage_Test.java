@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,9 +36,14 @@ public class DemoQA_TextBoxPage_Test {
         String actual="Name:AAAA";
         Assert.assertEquals(expected,actual);
 
+        //Drivers.closeDriver();
+
+
+    }
+
+    @After
+    public void exit(){
         Drivers.closeDriver();
-
-
     }
 
 

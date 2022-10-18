@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.DemoQA_RadiBPage;
@@ -25,6 +26,11 @@ public class DemoQA_RadioB_Test {
         radiBPage.no.click();
         Assert.assertTrue(radiBPage.no.isEnabled());
 
+        Drivers.closeDriver();
+    }
 
+    @After
+    public void exit(){
+        Drivers.closeDriver();
     }
 }
