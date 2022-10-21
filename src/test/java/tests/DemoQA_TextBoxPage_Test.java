@@ -36,19 +36,8 @@ public class DemoQA_TextBoxPage_Test {
         String actual="Name:AAAA";
         Assert.assertEquals(expected,actual);
 
-        //Drivers.closeDriver();
-
-
-    }
-
-    @After
-    public void exit(){
         Drivers.closeDriver();
     }
-
-
-
-
 
 
 }

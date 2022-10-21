@@ -23,17 +23,8 @@ public class DemoQA_ElementsPage_Test {
         String expected1=demoQA_page.page_elements.getText();
         Assert.assertTrue(expected1.contains("Elements"));
 
-
-    }
-
-    @After
-    public void exit(){
         Drivers.closeDriver();
+
     }
-
-
-
-
-
 
 }

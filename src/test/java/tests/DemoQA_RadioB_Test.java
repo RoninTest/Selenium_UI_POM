@@ -29,8 +29,5 @@ public class DemoQA_RadioB_Test {
         Drivers.closeDriver();
     }
 
-    @After
-    public void exit(){
-        Drivers.closeDriver();
-    }
+
 }
