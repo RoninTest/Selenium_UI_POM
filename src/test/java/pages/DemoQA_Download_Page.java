@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Drivers;
 
-public class DemoQA_UpD_Page {
+public class DemoQA_Download_Page {
 
-    public DemoQA_UpD_Page() {
+    public DemoQA_Download_Page() {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
 
@@ -17,6 +17,4 @@ public class DemoQA_UpD_Page {
     @FindBy (xpath = "//div/a[@id='downloadButton']")
     public WebElement download;
 
-    @FindBy (id="downloadButton")
-    public WebElement donwloadFile;
 }

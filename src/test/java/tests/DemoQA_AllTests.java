@@ -3,7 +3,10 @@ package tests;
 
 import jdk.jfr.Description;
 import org.apache.log4j.Logger;
+import org.bson.io.OutputBuffer;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import utilities.ReusableMethods;
 
 import java.io.IOException;
 
@@ -11,10 +14,12 @@ import java.io.IOException;
 public class DemoQA_AllTests {
 
   final static Logger logger = Logger.getLogger(DemoQA_AllTests.class);
-
+  ReusableMethods reusableMethods =new ReusableMethods();
 
   @Test @Description("Main Page")
-    public void Test001()  {
+    public void Test001() throws IOException {
+
+    reusableMethods.ChekInInternetConnection();
 
     logger.info("****** R*O*N*I*N* The test cases are STARTED  R*O*N*I*N* *******");
     logger.info("*************************************************************************");
@@ -37,7 +42,8 @@ public class DemoQA_AllTests {
     demoQACheckBoxTest.Test001();
   }
 
-  @Test @Description("Radio Button Test")
+  @Test
+  @DisplayName ("Radio Button Test")
     public void Test004(){
 
      DemoQA_RadioB_Test radioB_test=new DemoQA_RadioB_Test();
@@ -84,17 +90,28 @@ public class DemoQA_AllTests {
     brokenLinkTest.Test002();
     brokenLinkTest.Test003();
 
-    logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
+
 
   }
 
   @Test @Description("Download File")
   public void Test010(){
 
-    DemoQA_UpD_Test upD_test=new DemoQA_UpD_Test();
+    DemoQA_Download_Test upD_test=new DemoQA_Download_Test();
     upD_test.Test000();
     upD_test.Test001();
   }
+
+  @Test
+  public void Test011(){
+    DemoQA_UploadPage_Test uploadPage_test=new DemoQA_UploadPage_Test();
+    //uploadPage_test.Tes001();
+
+    logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
+    
+  }
+
+
 
 
 

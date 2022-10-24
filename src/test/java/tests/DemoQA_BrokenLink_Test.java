@@ -7,8 +7,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.DemoQA_BrokenLink_Page;
 import utilities.ConfigReader;
 import utilities.Drivers;
@@ -21,6 +19,7 @@ public class DemoQA_BrokenLink_Test {
     HttpGet request;
     HttpResponse response;
     DemoQA_BrokenLink_Page brokenLinkPage= new DemoQA_BrokenLink_Page();
+
 
     @Test
     public void Test001() throws IOException {
@@ -38,6 +37,7 @@ public class DemoQA_BrokenLink_Test {
         }while(brokenLinkPage.validLink.isSelected());
 
         Drivers.closeDriver();
+
     }
 
     @Test
@@ -45,7 +45,6 @@ public class DemoQA_BrokenLink_Test {
 
         Drivers.getDriver().get(ConfigReader.getProperty("demoQABroken"));
 
-        do{
             client=HttpClientBuilder.create().build();
             request=new HttpGet("http://the-internet.herokuapp.com/status_codes/500");
             response= client.execute(request);
@@ -56,18 +55,16 @@ public class DemoQA_BrokenLink_Test {
                 Assert.assertEquals(200,statusCode);
 
             }else {
-
-                Assert.assertEquals(500,statusCode);
                 System.out.println("Class Name Page = "
                         + DemoQA_BrokenLink_Page.class.getName()
                         + "\t"
                         + "Class Name Test ="
                         + DemoQA_BrokenLink_Test.class.getName()
                         + " ******!!! Status Code 500 !!!***********");
+
+                Assert.assertEquals(500,statusCode);
+
             }
-        }while(brokenLinkPage.brokenLink.isSelected());
-
-
         Drivers.closeDriver();
     }
 
@@ -76,12 +73,13 @@ public class DemoQA_BrokenLink_Test {
 
         Drivers.getDriver().get(ConfigReader.getProperty("demoQABroken"));
 
+
+
         String brokenImageUrl=brokenLinkPage.brokenPicture.getAttribute("src");
         client=HttpClientBuilder.create().build();
         request=new HttpGet(brokenImageUrl);
         response= client.execute(request);
         int statusCode=response.getStatusLine().getStatusCode();
-        System.out.println(brokenImageUrl);
 
         Assert.assertEquals(200,statusCode);
 
