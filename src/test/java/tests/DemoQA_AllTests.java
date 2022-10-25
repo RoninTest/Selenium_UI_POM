@@ -3,7 +3,6 @@ package tests;
 
 import jdk.jfr.Description;
 import org.apache.log4j.Logger;
-import org.bson.io.OutputBuffer;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import utilities.ReusableMethods;
@@ -89,10 +88,8 @@ public class DemoQA_AllTests {
     brokenLinkTest.Test001();
     brokenLinkTest.Test002();
     brokenLinkTest.Test003();
-
-
-
   }
+
 
   @Test @Description("Download File")
   public void Test010(){
@@ -102,15 +99,64 @@ public class DemoQA_AllTests {
     upD_test.Test001();
   }
 
-  @Test
+  @Test @Description("Upload Page Test")
   public void Test011(){
     DemoQA_UploadPage_Test uploadPage_test=new DemoQA_UploadPage_Test();
-    //uploadPage_test.Tes001();
-
-    logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
-    
+    uploadPage_test.Tes001();
   }
 
+  @Test @Description("Windows Frame Tests-1")
+  public void Test012(){
+    DemoQA_WindowsFrame_Test demoQA_windowsFrame_test=new DemoQA_WindowsFrame_Test();
+    demoQA_windowsFrame_test.Test000();
+    demoQA_windowsFrame_test.Test001();
+
+  }
+
+  @Test @Description("Windows Frame Tests-2")
+  public void Test013(){
+    DemoQA_WindowsFrame_Test demoQA_windowsFrame_test=new DemoQA_WindowsFrame_Test();
+    demoQA_windowsFrame_test.Test000();
+    demoQA_windowsFrame_test.Test002();
+  }
+  @Test @Description("Windows Frame Tests-3")
+  public void Test014(){
+    DemoQA_WindowsFrame_Test demoQA_windowsFrame_test=new DemoQA_WindowsFrame_Test();
+    demoQA_windowsFrame_test.Test000();
+    demoQA_windowsFrame_test.Test003();
+
+  }
+
+  @Test @Description("Alerts - 1")
+  public void Test015(){
+  DemoQA_Alerts_Test demoQA_alerts_test=new DemoQA_Alerts_Test();
+  demoQA_alerts_test.setUp();
+  demoQA_alerts_test.Test001();
+  }
+
+  @Test @Description("Alerts - 2")
+  public void Test016(){
+    DemoQA_Alerts_Test demoQA_alerts_test=new DemoQA_Alerts_Test();
+    demoQA_alerts_test.setUp();
+    demoQA_alerts_test.Test002();
+  }
+
+  @Test @Description("Alerts - 3")
+  public void Test017(){
+    DemoQA_Alerts_Test demoQA_alerts_test=new DemoQA_Alerts_Test();
+    demoQA_alerts_test.setUp();
+    demoQA_alerts_test.Test003();
+
+  }
+
+  @Test @Description("Alerts - 4")
+  public void Test018(){
+    DemoQA_Alerts_Test demoQA_alerts_test=new DemoQA_Alerts_Test();
+    demoQA_alerts_test.setUp();
+    demoQA_alerts_test.Test004();
+
+    logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
+  }
 
 
 
