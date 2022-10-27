@@ -6,7 +6,7 @@ import org.junit.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.*;
+
 
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,24 +19,20 @@ import java.time.Duration;
 
 
 
-public class DemoQA_Alerts_Test {
-
-    DemoQA_Alerts_Page demoQAAlertsPage = new DemoQA_Alerts_Page();
-    WebDriverWait wait;
+public class DemoQA_Alerts_Test extends DemoQA_Alerts_Page{
 
     @Before
     public void setUp() {
 
         Drivers.getDriver().get(ConfigReader.getProperty("demoQaAlerts"));
-        Assert.assertTrue(demoQAAlertsPage.headerAlert.isDisplayed());
+        Assert.assertTrue(headerAlert.isDisplayed());
     }
 
 
         @Test
         public void Test001() {
-            demoQAAlertsPage.alertButton.click();
-            wait = new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(3));
-            wait.until(ExpectedConditions.alertIsPresent());
+            alertButton.click();
+            Drivers.getDriver().switchTo().alert().accept();
 
             Drivers.closeDriver();
         }
@@ -44,8 +40,8 @@ public class DemoQA_Alerts_Test {
         @Test
         public void Test002() {
 
-            demoQAAlertsPage.timerAlertButton.click();
-            wait = new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(6));
+            timerAlertButton.click();
+            WebDriverWait wait = new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(6));
             wait.until(ExpectedConditions.alertIsPresent());
             Drivers.getDriver().switchTo().alert().accept();
 
@@ -54,19 +50,15 @@ public class DemoQA_Alerts_Test {
 
     @Test
     public void Test003() {
-        demoQAAlertsPage.confirmButton.click();
-        wait = new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.alertIsPresent());
-        Drivers.getDriver().switchTo().alert().dismiss();
+        confirmButton.click();
+        Drivers.getDriver().switchTo().alert().accept();
 
         Drivers.closeDriver();
     }
 
     @Test
     public void Test004() {
-        demoQAAlertsPage.promtButton.click();
-        wait = new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.alertIsPresent());
+        promtButton.click();
         Drivers.getDriver().switchTo().alert().sendKeys("Hello");
         Drivers.getDriver().switchTo().alert().accept();
 

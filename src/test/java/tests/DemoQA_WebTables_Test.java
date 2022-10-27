@@ -1,13 +1,12 @@
 package tests;
 
-import com.beust.ah.A;
-import jdk.jfr.Timespan;
-import org.junit.After;
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,18 +14,23 @@ import pages.DemoQA_WebTablesPage;
 import utilities.ConfigReader;
 import utilities.Drivers;
 
+
 import java.time.Duration;
 
 public class DemoQA_WebTables_Test {
 
+    DemoQA_WebTablesPage webTablesPage=new DemoQA_WebTablesPage();
+    Actions actions=new Actions(Drivers.getDriver());
+    WebDriverWait wait;
+    @Before
+    public void Test000(){
+        Drivers.getDriver().get(ConfigReader.getProperty("demoQAWebTables"));
+    }
+
     @Test
     public void Test001()  {
-        Drivers.getDriver().get(ConfigReader.getProperty("demoQAWebTables"));
 
-        DemoQA_WebTablesPage webTablesPage=new DemoQA_WebTablesPage();
-        Actions actions=new Actions(Drivers.getDriver());
-        WebDriverWait wait=new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(20) );
-
+        wait=new WebDriverWait(Drivers.getDriver(), Duration.ofSeconds(20) );
         Assert.assertTrue(webTablesPage.header.isDisplayed());
 
         webTablesPage.buttonAdd.click();
@@ -56,6 +60,7 @@ public class DemoQA_WebTables_Test {
         String actual2=webTablesPage.findLastName.getText();
         String expected2="BBBB";
         Assert.assertEquals(expected2,actual2);
+
 
         webTablesPage.searchBox.clear();
         webTablesPage.deleteCustomer.click();

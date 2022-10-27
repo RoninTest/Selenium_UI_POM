@@ -78,5 +78,6 @@ public class DemoQA_WindowsFrame_Test {
         List<String> tabs=new ArrayList<>(Drivers.getDriver().getWindowHandles());
         Drivers.getDriver().switchTo().window(tabs.get(0)).close();
 
+        Drivers.closeDriver();
     }
 }

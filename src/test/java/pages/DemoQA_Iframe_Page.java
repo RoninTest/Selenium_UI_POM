@@ -24,6 +24,7 @@ public class DemoQA_Iframe_Page {
     @FindBy (id="frame2")
     public WebElement frame2id;
 
-
+    @FindBy (css = "div[id='framesWrapper'] div")
+    public WebElement parentFrameText;
 
 }
