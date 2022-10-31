@@ -275,7 +275,7 @@ public class DemoQA_AllTests {
     DemoQA_ToolTip_Test toolTip_test=new DemoQA_ToolTip_Test();
     toolTip_test.Test000();
     toolTip_test.Test002();
-    //logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
+    logger.info("****** R*O*N*I*N* The test cases are COMPLETED R*O*N*I*N* *******");
   }
 
 
