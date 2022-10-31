@@ -1,7 +1,8 @@
 # Selenium_UI_POM
 
 Hello,
-I have tried to complete for exercises on DemoQA website. I used Page Object Design Pattern.
+I have tried to complete for exercises on DemoQA website test auto. exercies. 
+I used Page Object Design Pattern.
 https://demoqa.com/
 
 My Page Object Design Pattern
