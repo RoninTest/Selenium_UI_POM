@@ -5,6 +5,8 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +14,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.DemoQA_ToolTip_Page;
 import utilities.ConfigReader;
 import utilities.Drivers;
+import utilities.ReusableMethods;
 
+import java.io.File;
 import java.time.Duration;
 
 public class DemoQA_ToolTip_Test extends DemoQA_ToolTip_Page {
@@ -29,6 +33,8 @@ public class DemoQA_ToolTip_Test extends DemoQA_ToolTip_Page {
                 .as("ToolTip Text")
                 .isEqualTo("Tool Tips");
 
+
+
     }
 
     @Test
@@ -41,6 +47,7 @@ public class DemoQA_ToolTip_Test extends DemoQA_ToolTip_Page {
         assertions.assertThat(valueTool)
                 .as("ToolTip Button Text")
                 .isEqualTo("buttonToolTip");
+
 
         Drivers.closeDriver();
     }

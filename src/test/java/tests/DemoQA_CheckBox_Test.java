@@ -1,20 +1,23 @@
 package tests;
 
-import org.junit.After;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.DemoQA_CheckBoxPage;
+
 import utilities.ConfigReader;
 import utilities.Drivers;
+import utilities.ReusableMethods;
+
+import java.io.IOException;
 
 
-public class DemoQA_CheckBox_Test {
+public class DemoQA_CheckBox_Test extends ReusableMethods {
 
     WebElement element,element1,element2,element3;
     @Test
-    public void Test001(){
+    public void Test001() throws IOException {
         Drivers.getDriver().get(ConfigReader.getProperty("demoQACheckBox"));
 
         element=Drivers.getDriver().findElement(By.xpath("//div[@class='main-header']"));
@@ -25,6 +28,8 @@ public class DemoQA_CheckBox_Test {
         element2.click();
         element3=Drivers.getDriver().findElement(By.id("result"));
         Assert.assertTrue(element3.isDisplayed());
+
+        TakeSnapShot(Drivers.getDriver(),ConfigReader.getProperty("screenShotPath")+PicList().get(3));
 
         Drivers.closeDriver();
     }

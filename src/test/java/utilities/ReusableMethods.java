@@ -1,15 +1,25 @@
 package utilities;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 
-import javax.swing.*;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReusableMethods {
+
+
 
     // When It requires a reuse method.
 
@@ -24,8 +34,7 @@ public class ReusableMethods {
             System.out.println("Enjoy your test. Internet connection OK");
         }catch (IOException e){
 
-            // JOptionPane.showMessageDialog(null,"Please, check your internet connection.","Selenium Test Project",JOptionPane.INFORMATION_MESSAGE);
-            System.out.println("\n"
+           System.out.println("\n"
                     +"*********************** WARNING **************************** "
                     +"\n"
                     +"               Internet is not connected                     "
@@ -33,6 +42,26 @@ public class ReusableMethods {
                     +"***********************************************************");
         }
 
+    }
+
+    public void TakeSnapShot(WebDriver webDriver, String  fileWithPath) throws IOException {
+        TakesScreenshot scrShot =((TakesScreenshot)webDriver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File(fileWithPath);
+        FileUtils.copyFile(SrcFile,DestFile);
+    }
+
+
+
+    public List PicList(){
+        List<String> pictureName= new ArrayList<>();
+
+        pictureName.add("1.MainPage.jpg");
+        pictureName.add("2.TextBoxPage_1.jpg");
+        pictureName.add("2.TextBoxPage_2.jpg");
+        pictureName.add("2.CheckBoxPage_1.jpg");
+
+        return pictureName;
     }
 
 }
